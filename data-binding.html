@@ -1,0 +1,33 @@
+<!--
+Data-binding:
+
+Permite ligar tags HTML a daods definidos no Javascript.
+É retaivo, ou seja, ao ser alterado a interface é atualizada junto.
+
+- É representada pela notação mustache {{dado}} quando queremos exibir na pagina.
+- Utilizamos o atributo de tag v-model para alterar o dado.
+- Utiçizamos o v-bind: (ou apenas :) para atribuir o valor de um dado para um atributo de tag.
+-->
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+    Oi, eu sou o {{ nome }}
+    <br>
+    <input type="text" v-model="nome">
+    <br>
+    <a v-bind:href="linkBuscador">Buscador</a>
+</div>
+
+<script type="module">
+    const { createApp } = Vue
+
+    const linkBuscador = 'http://google.com'
+
+    createApp({
+        data: () => ({
+            nome: 'Maheus',
+            linkBuscador: linkBuscador
+        })
+    }).mount('#app')
+</script>
